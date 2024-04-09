@@ -41,8 +41,28 @@ body {
     border-radius: 1em;
 }
 
-.topDiv {
+.bottom-div {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
 
-    flex-direction: column;
+.date {
+    font-size: 16px;
+    color: #E65F5C;
+}
+
+.bottom-div .button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: #E65F5C;
+}
+
+.bottom-div .button:hover {
+    cursor: pointer;
 }
