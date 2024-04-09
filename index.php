@@ -24,7 +24,11 @@ function eventDiv($cid, $title, $date): string
     <div class='eventDiv' id='$cid'>
     <div class='bottom-div'>
         <span class='date'>$date</span>
+        <div>
         <a href='loveGithhi.php?item=$cid' class='button'>Edit</a>
+        <span class='slash'>/</span>
+        <a href='shrinkGithhi.php?item=$cid' class='button'>Delete</a>
+        </div>
     </div>
             <span>$title</span>
     </div>";

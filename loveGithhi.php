@@ -3,10 +3,10 @@ global $dbconn, $id;
 include "conn.php";
 
 if (isset($_POST["submit"])) {
-    
-    echo $dbconn->query("INSERT into calendar ($title, $date) VALUES ('$_POST[title]', '$_POST[date]')");
+    if ($dbconn->query("UPDATE calendar SET $title = '$_POST[title]', $date = '$_POST[date]' WHERE $id = $_GET[item]")) {
+        header("Location: index.php");
+    }
 }
-
 
 echo $_GET["item"];
 $result = $dbconn->query("select * from calendar where $id='$_GET[item]'");
@@ -14,8 +14,6 @@ $result = $dbconn->query("select * from calendar where $id='$_GET[item]'");
 $row = $result->fetch_assoc();
 $gtitle = $row[$title];
 $gdate = $row[$date];
-
-
 
 echo "
 <form method='post'>
