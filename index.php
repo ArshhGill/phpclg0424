@@ -7,8 +7,10 @@ echo "<link rel='stylesheet' href='style.css'>";
 
 
 $result = $dbconn->query("select * from calendar ORDER BY $date ASC");
-echo "<div class='main-container'><span class='heading'>Events</span><a href='githhi.php'>Add Task</a>";
+echo "<div class='sides'><div class='head-container'><span class='heading'>Events</span><a href='insert.php' id='btn' class='button'>Add Task</a></div></div>";
+echo "<div class='main-container'><div class='tasks'>";
 
+//echo "<div class='head-container'><span class='heading'>Events</span><a href='insert.php' id='btn' class='button'>Add Task</a></div><div class='main-container'>";
 
 
 
@@ -16,7 +18,8 @@ echo "<div class='main-container'><span class='heading'>Events</span><a href='gi
 while ($row = $result->fetch_assoc()) {
     echo eventdiv($row[$id], $row[$title], $row[$date]);
 }
-echo "</div>";
+echo "</div></div>";
+echo "<div class='sides'></div>";
 
 function eventDiv($cid, $title, $date): string
 {
@@ -25,9 +28,9 @@ function eventDiv($cid, $title, $date): string
     <div class='bottom-div'>
         <span class='date'>$date</span>
         <div>
-        <a href='loveGithhi.php?item=$cid' class='button'>Edit</a>
+        <a href='update.php?item=$cid' class='button'>Edit</a>
         <span class='slash'>/</span>
-        <a href='shrinkGithhi.php?item=$cid' class='button'>Delete</a>
+        <a href='delete.php?item=$cid' class='button'>Delete</a>
         </div>
     </div>
             <span>$title</span>

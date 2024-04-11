@@ -7,22 +7,64 @@ body {
 
     margin: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.sides {
+    width: 20vw;
 }
 
 .main-container {
     display: flex;
     flex-direction: column;
-    padding-block: 1.2em;
+    /*padding-block: 1.2em;*/
     padding-inline: 2em;
     gap: 1em;
 
     width: min(600px, calc(100vw - 4em));
+
+    /*max-height: 95vh;*/
 }
+
+.head-container {
+    background-color: #03191e;
+
+    position: sticky;
+    top: 0;
+    margin-top: 0.6em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-block: 1.2em;
+    padding-inline: 2em;
+    gap: 1em;
+    height: 40em;
+}
+
+.container input {
+    background-color: #000;
+    color: #E65F5C;
+}
+
+
 
 .heading {
     padding-left: 20px;
+
     font-weight: 700;
     font-size: 32px;
     color: #F0EFF4;
@@ -53,16 +95,23 @@ body {
     color: #E65F5C;
 }
 
-.bottom-div .button {
+.button, #btn {
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 16px;
     text-decoration: none;
     border: none;
     background: none;
-    color: #E65F5C;
+    color: #E65F5C !important;
 }
 
-.bottom-div .button:hover {
+#btn {
+    display: flex;
+    justify-content: right;
+    padding-right: 1em;
+    padding-bottom: 0.4em;
+}
+
+.button:hover, #btn:hover {
     cursor: pointer;
 }
