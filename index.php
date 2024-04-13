@@ -13,8 +13,6 @@ echo "<div class='main-container'><div class='tasks'>";
 //echo "<div class='head-container'><span class='heading'>Events</span><a href='insert.php' id='btn' class='button'>Add Task</a></div><div class='main-container'>";
 
 
-
-
 while ($row = $result->fetch_assoc()) {
     echo eventdiv($row[$id], $row[$title], $row[$date]);
 }
