@@ -1,12 +1,29 @@
 <?php
 
-global $dbconn, $title;
+session_start();
+
+if (!isset($_SESSION['username'])){
+    header("Location: ./usersystem/login.php");
+}
+
+global $users, $calendars, $events, $dbconn;
 include "conn.php";
+
 
 echo "<link rel='stylesheet' href='style.css'>";
 
 
-$result = $dbconn->query("select * from calendar ORDER BY $date ASC");
+$query = <<<sql
+ SELECT events.eid, events.etitle, events.edate
+ FROM events
+ INNER JOIN calendars ON calendars.cid=events.cid where calendars.uname='$_SESSION[username]';
+sql;
+
+//echo $query;
+
+
+
+$result = $dbconn->query($query);
 echo "<div class='sides'><div class='head-container'><span class='heading'>Events</span><a href='insert.php' id='btn' class='button'>Add Task</a></div></div>";
 echo "<div class='main-container'><div class='tasks'>";
 
@@ -14,7 +31,7 @@ echo "<div class='main-container'><div class='tasks'>";
 
 
 while ($row = $result->fetch_assoc()) {
-    echo eventdiv($row[$id], $row[$title], $row[$date]);
+    echo eventdiv($row[$events['id']], $row[$events['title']], $row[$events['date']]);
 }
 echo "</div></div>";
 echo "<div class='sides'></div>";

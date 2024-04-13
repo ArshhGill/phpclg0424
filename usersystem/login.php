@@ -3,17 +3,24 @@ include "../conn.php";
 
 global $users, $calendars, $events, $dbconn;
 
+session_start();
+
+if (isset($_SESSION['username'])) {
+    header('Location: ../index.php');
+    die();
+}
+
+
 if (isset($_POST['submit'])) {
     $str = "SELECT * FROM $users[table] where $users[id]='$_POST[username]' and $users[password]='$_POST[password]'";
     $result = $dbconn->query($str);
     if ($row = $result->fetch_assoc()) {
-        echo "UWUWUWUWUWU";
-        echo $row[$users["id"]];
+        $_SESSION['username'] = $row[$users["id"]];
+        header('Location: ../index.php');
         die();
     } else {
         echo "user not found uwu";
     }
-
 }
 
 

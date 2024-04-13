@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ./usersystem/login.php");
+}
 global $dbconn, $title, $date;
 include "conn.php";
 
