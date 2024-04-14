@@ -14,6 +14,13 @@ sql;
 
 $result = $dbconn->query($query);
 
+echo "<ol>";
+
 while ($row = $result->fetch_assoc()) {
-    echo "<div class='calendar-select' id='$row[$calendars][id]'><span>$row[$calendars][title]</span></div>";
+    $calid = $row[$calendars['id']];
+    $caltitle = $row[$calendars['title']];
+    echo "<li><a class='calendar-select' href='selectCalendarHandle.php?item=$calid'>$caltitle</a></li>";
 }
+echo "</ol><br><br>";
+
+echo "<a id='btn' class='button' href='newCalendar.php'>Create Calendar</a>";

@@ -6,7 +6,7 @@ global $users, $calendars, $events, $dbconn;
 session_start();
 
 if (isset($_SESSION['username'])) {
-    header('Location: ../index.php');
+    header('Location: ../');
     die();
 }
 
