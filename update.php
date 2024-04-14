@@ -1,4 +1,7 @@
 <?php
+
+include "sessionVarCheck.php";
+
 global $dbconn, $id;
 include "conn.php";
 global $users, $calendars, $events, $dbconn;
