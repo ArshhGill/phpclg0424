@@ -30,4 +30,6 @@ echo "
 <input type='password' name='password' placeholder='Password'>
 <input type='submit' name='submit' value='Login'>
 </form>
+<br>
+<a href='signup.php'>Signup</a>
 ";

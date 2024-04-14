@@ -4,5 +4,6 @@ session_start();
 
 if (isset($_SESSION['username'])) {
     unset($_SESSION['username']);
+    unset($_SESSION['calendar']);
 }
 header('Location: ./login.php');

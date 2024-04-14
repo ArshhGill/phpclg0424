@@ -2,14 +2,17 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-header("Location: ./usersystem/login.php");
+    header("Location: ./usersystem/login.php");
 }
 
 global $users, $calendars, $events, $dbconn;
 include "conn.php";
 
 if (isset($_POST["submit"])) {
-    if ($dbconn->query("INSERT into $calendars[table] ($calendars[title], $calendars[owner]) VALUES ('$_POST[calname]', $_SESSION[username]')")) {
+    $query = <<<sql
+INSERT into $calendars[table] ($calendars[title], $calendars[owner]) VALUES ('$_POST[calname]', '$_SESSION[username]')
+sql;
+    if ($dbconn->query($query)) {
         header("Location: ./selectCalendar.php");
     }
 }
