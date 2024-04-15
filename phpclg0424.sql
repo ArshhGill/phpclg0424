@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `users`
     `utype` SET ('user', 'admin') DEFAULT 'user' NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS `calendar`
+CREATE TABLE IF NOT EXISTS `calendars`
 (
     `cid`   INT(11) AUTO_INCREMENT PRIMARY KEY,
     `cname` VARCHAR(255) NOT NULL,
@@ -19,5 +19,5 @@ CREATE TABLE IF NOT EXISTS `events`
     `etitle` VARCHAR(255) NOT NULL,
     `edate`  DATE         NOT NULL,
     `cid`    INT(11)      NOT NULL,
-    FOREIGN KEY (`cid`) REFERENCES `calendar` (`cid`)
+    FOREIGN KEY (`cid`) REFERENCES `calendars` (`cid`)
 );
